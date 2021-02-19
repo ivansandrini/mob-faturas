@@ -10,7 +10,7 @@ O objetivo do desafio é:
 
 2. Realizar as validações dos campos seguindo o modelo:
 
-###Layout
+### Layout
 
 Campo       | Descrição            | Posição | Tipo
 ---         | ---                  | ---     | --- 
@@ -21,7 +21,7 @@ Emissão     | Data da emissão      | 34-42   | Datetime
 Pagamento   | Data do pagamento    | 43-51   | Datetime
 
 
-###Tipos de dados
+### Tipos de dados
 
 Tipo|Descrição
 ---|---
@@ -29,7 +29,7 @@ Alphanumérico|A-Za-z0-9
 Datetime|2020-01-01
 Meio de pagamento|1-3
 
-###Valores
+### Valores
 Meio de pagamento| Descrição  
 --- | --- 
 1 | Boleto
@@ -42,7 +42,7 @@ Pago | Data de pagamento preenchida, com valor maior ou igual a data de emissão
 Em aberto | Data de pagamento não preenchida
 Agendado    | Data de pagamento após a data de hoje
 
-<br><br>
+<br>
 
 3. Realizar a impressão da fatura com o seu devido status. Resultado esperado:
 
