@@ -12,13 +12,13 @@ O objetivo do desafio é:
 
 ### Layout
 
-Campo       | Descrição            | Posição | Tipo
----         | ---                  | ---     | --- 
-Lançamento  | Meio de pagamento    | 01-01   | Tipo
-Pagador     | Nome do Pagador      | 02-22   | Alphanumérico
-Recebedor   | Nome do recebedor    | 23-33   | Alphanumérico
-Emissão     | Data da emissão      | 34-42   | Datetime
-Pagamento   | Data do pagamento    | 43-51   | Datetime
+Campo              | Descrição            | Posição | Tipo
+---                | ---                  | ---     | --- 
+Pagamento          | Meio de pagamento    | 01-01   | MDP
+Pagador            | Nome do Pagador      | 02-22   | Alphanumérico
+Recebedor          | Nome do recebedor    | 23-33   | Alphanumérico
+Emissão            | Data da emissão      | 34-42   | Datetime
+Pagamento          | Data do pagamento    | 43-51   | Datetime
 
 
 ### Tipos de dados
@@ -27,10 +27,10 @@ Tipo|Descrição
 ---|---
 Alphanumérico|A-Za-z0-9
 Datetime|2020-01-01
-Meio de pagamento|1-3
+Pagamento|1-3
 
 ### Valores
-Meio de pagamento| Descrição  
+MDP| Descrição  
 --- | --- 
 1 | Boleto
 2 | Cartão
