@@ -1,18 +1,24 @@
 from unittest import TestCase
 
+from BankTransactionErrors import LineParseError
+from BankTransactionLineValidator import BankTransactionLineValidator
+
 
 class TestBankTransactionLineValidator(TestCase):
-    def test_validate(self):
-        self.fail()
-
-    def test_validate_line_structure(self):
-        self.fail()
-
-    def test_validate_business(self):
-        self.fail()
+    SUCCESS_CASE = '1Ivan Sandrini       Marcos Brito          2021030120210301000000000000000009999'
+    LENGTH_ERROR = "1*************       Marcos Brito      "
+    VENDOR_NAME_ERROR = "1*************       Marcos Brito          2021030120210301000000000000000009999"
+    EMISSION_DATE_ERROR = "1Ivan Sandrini       Marcos Brito          2021030120210301000000000000000009999"
+    EMISSION_DATE_GREATER_THAN_PAYMENT_DATE = "1Ivan Sandrini       Marcos Brito          2021030120210228000000000000000009999"
 
     def test_validate_line_length(self):
-        self.fail()
+        with self.assertRaises(LineParseError):
+            BankTransactionLineValidator(self.LENGTH_ERROR).validate_line_length()
+
+        try:
+            BankTransactionLineValidator(self.SUCCESS_CASE).validate_line_length()
+        except LineParseError:
+            self.fail('Unexpected error')
 
     def test_validate_field_vendor(self):
         self.fail()

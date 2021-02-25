@@ -7,7 +7,7 @@ class BankTransactionLineValidator:
         self.line = line
 
     def validate(self):
-        #self.validate_line_structure()
+        self.validate_line_structure()
         #self.validate_business()
         pass
 
