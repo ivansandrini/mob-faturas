@@ -1,4 +1,5 @@
-from BankTransactionExceptions import LineParseError
+# coding=utf-8
+from BankTransactionErrors import LineParseError
 
 
 class BankTransactionLineValidator:
@@ -6,8 +7,9 @@ class BankTransactionLineValidator:
         self.line = line
 
     def validate(self):
-        self.validate_line_structure()
-        self.validate_business()
+        #self.validate_line_structure()
+        #self.validate_business()
+        pass
 
     def validate_line_structure(self):
         self.validate_line_length()
@@ -48,19 +50,25 @@ class BankTransactionLineValidator:
         raise LineParseError("O campo status não é válido.")
 
     def validate_field_value(self):
-        raise LineParseError("O campo valor não é válido.")
+        # TODO: Add message and validation
+        pass
 
     def validate_payment(self):
-        raise LineParseError("O valor da fatura não é um valor aceito para essa transação.")
+        # TODO: Add message and validation
+        pass
 
     def validate_emission_pix(self):
-        raise LineParseError("A data de emissão deve ser menor ou igual a dta atual ")
+        # TODO: Add message and validation
+        pass
 
     def validate_status(self):
-        raise LineParseError("Length of this line is not acceptable")
+        # TODO: Add message and validation
+        pass
 
     def validate_payer(self):
-        raise LineParseError("Length of this line is not acceptable")
+        # TODO: Add message and validation
+        pass
 
     def validate_buyer(self):
-        raise LineParseError("Length of this line is not acceptable")
+        # TODO: Add message and validation
+        pass
