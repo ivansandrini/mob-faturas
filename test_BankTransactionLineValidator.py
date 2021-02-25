@@ -8,6 +8,7 @@ class TestBankTransactionLineValidator(TestCase):
     SUCCESS_CASE = '1Ivan Sandrini       Marcos Brito          2021030120210301000000000000000009999'
     LENGTH_ERROR = "1*************       Marcos Brito      "
     VENDOR_NAME_ERROR = "1*************       Marcos Brito          2021030120210301000000000000000009999"
+    BUYER_NAME_ERROR = "1*************       ************          2021030120210301000000000000000009999"
     EMISSION_DATE_ERROR = "1Ivan Sandrini       Marcos Brito          2021030120210301000000000000000009999"
     EMISSION_DATE_GREATER_THAN_PAYMENT_DATE = "1Ivan Sandrini       Marcos Brito          2021030120210228000000000000000009999"
 
@@ -21,10 +22,22 @@ class TestBankTransactionLineValidator(TestCase):
             self.fail('Unexpected error')
 
     def test_validate_field_vendor(self):
-        self.fail()
+        with self.assertRaises(LineParseError):
+            BankTransactionLineValidator(self.VENDOR_NAME_ERROR).validate_field_vendor()
+
+        try:
+            BankTransactionLineValidator(self.SUCCESS_CASE).validate_field_vendor()
+        except LineParseError:
+            self.fail('Unexpected error')
 
     def test_validate_field_buyer(self):
-        self.fail()
+        with self.assertRaises(LineParseError):
+            BankTransactionLineValidator(self.BUYER_NAME_ERROR).validate_field_buyer()
+
+        try:
+            BankTransactionLineValidator(self.SUCCESS_CASE).validate_field_buyer()
+        except LineParseError:
+            self.fail('Unexpected error')
 
     def test_validate_field_transaction_type(self):
         self.fail()

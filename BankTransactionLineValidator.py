@@ -29,13 +29,24 @@ class BankTransactionLineValidator:
         self.validate_buyer()
 
     def validate_line_length(self):
-        raise LineParseError("O tamanho da linha não está correto. Tamanho:[%i]")
+        if len(self.line) != 80:
+            raise LineParseError("O tamanho da linha não está correto. Tamanho:[%i]")
+
+    def validate_is_str(self, name):
+        if not name.replace(" ", "").isalpha():
+            raise LineParseError("O campo vendedor não é válido.")
 
     def validate_field_vendor(self):
-        raise LineParseError("O campo vendedor não é válido.")
+        name = str(self.line[1:21])
+
+        if not name.replace(" ", "").isalpha():
+            raise LineParseError("O campo vendedor não é válido.")
 
     def validate_field_buyer(self):
-        raise LineParseError("O campo comprador não é válido.")
+        name = str(self.line[22:42])
+
+        if not name.replace(" ", "").isalpha():
+            raise LineParseError("O campo comprador não é válido.")
 
     def validate_field_transaction_type(self):
         raise LineParseError("O campo tipo da transação não é válido.")
